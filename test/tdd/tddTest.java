@@ -33,4 +33,16 @@ public class tddTest {
 
         assertTrue(fatura.verificaPagamento() && fatura.boletos.size() == 3);
     }
+
+    @Test 
+    public void terceiroExemplo() {
+        Fatura fatura = new Fatura("02/07/2021", 2000, "Cliente 1");
+        Boleto boleto1 = new Boleto("Codigo 1", "03/07/2021", 500);
+        Boleto boleto2 = new Boleto("Codigo 2", "04/07/2021", 400);
+
+        fatura.efetuaPagamento(boleto1);
+        fatura.efetuaPagamento(boleto2);
+
+        assertTrue(fatura.verificaPagamento() == false && fatura.boletos.size() == 2);
+    }
 }
